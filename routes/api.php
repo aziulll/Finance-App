@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ReceitaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('receita', ReceitaController::class);
+Route::get('/total-usuarios', [UserController::class, 'getCountOfUsers'])->name("total-usuarios");

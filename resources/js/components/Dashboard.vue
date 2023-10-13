@@ -4,11 +4,17 @@
       <Sidebar />
     </div>
 
-    <div class="content-right p-2">
+    <div class="content-right p-2 grid grid-cols-4 gap-4  ">
      <div class="navbar">
      
      </div>
-     <ReceitaList />
+    <div class="col-span-3"> 
+      <ReceitaList />
+    </div>
+   <div class="contagem col-span-3">
+    <ContagemU />
+   </div>
+     
     </div>
 
     <!-- <div class="content-right flex flex-col items-center">
@@ -27,6 +33,7 @@ import ReceitaList from "./Receita/ReceitaList.vue";
 import ReceitaForm from "./Receita/ReceitaForm.vue";
 import DespesasListVue from "./Despesa/DespesasList.vue";
 import Navbar from './Navbar.vue';
+import ContagemU from "./Usuario/ContagemU.vue";
 
 
 export default {
@@ -36,7 +43,8 @@ export default {
     ReceitaList,
     ReceitaForm,
     DespesasListVue,
-    Navbar
+    Navbar, 
+    ContagemU
   },
   data() {
     return {

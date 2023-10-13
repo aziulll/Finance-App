@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="list" class="p-2 drop-shadow-md border border-black-500 rounded w-1/2">
+    <div id="list" class="p-2 drop-shadow-md border border-black-500 rounded ">
     
       <table class="w-4/5 h-full ">
         <thead class="p-2">
