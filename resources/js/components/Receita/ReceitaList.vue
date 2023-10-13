@@ -1,5 +1,5 @@
 <template>
- <div class="p-2">
+ <div class="p-6">
   <div id="list" class="border border-black-500 rounded shadow-md">
     <table class="w-11/12 mx-auto"> <!-- Use w-11/12 para centralizar a tabela -->
       <thead class="p-2">
@@ -31,15 +31,26 @@
         </tr>
       </tbody>
     </table>
-    <p>{{ total }}</p>
+    
+    <TotalComponent />
   </div>
+
+
+
 </div>
 </template>
 
 <script>
 import axios from "axios";
+import TotalComponent from "./TotalComponent.vue";
 export default {
+
+  components: {
+    TotalComponent,
+  },
   data() {
+
+  
     return {
       receitas: [],
       total: 0
@@ -57,21 +68,18 @@ export default {
   },
   methods: {
     async deleteReceita(id) {
-      try {
-        await axios.delete(`/api/receita/${id}`);
-        this.receitas = this.receitas.filter((receita) => receita.id !== id);
-      } catch (error) {
-        console.error(error);
-      }
-    },
+  try {
+    await axios.delete(`/api/receita/${id}`);
+    // Remove a receita da lista após a exclusão bem-sucedida
+    this.receitas = this.receitas.filter((receita) => receita.id !== id);
+  } catch (error) {
+    console.error(`Erro ao excluir a receita com ID ${id}:`, error);
+  }
+},
   },
 
   
 };
 </script>
 
-<style>
-.table {
-  width: 500px;
-}
-</style>
+

@@ -1,29 +1,50 @@
 <template>
     <div>
-        <div class="drop-shadow-md border border-black-500 w-24 h-24 text-center">
+        <div class="drop-shadow-md border border-black-500 w-62 h-62 text-center">
           <h1>Usuarios</h1>
             <p>{{ totalUsuarios}}</p>
         </div>
     </div>
+
+   
 </template>
 
 <script>
+
 export default {
-  data() {
-    return {
-      totalUsuarios: 0  // Inicialize com um valor padrão se desejar
-    };
-  },
-  
-  mounted() {
-    // Faça a solicitação para a API usando o Axios
-    axios.get('/total-usuarios')
-      .then(response => {
-        this.totalUsuarios = response.data  .totalUsuarios;
-      })
-      .catch(error => {
-        console.error('Erro:', error);
-      });
+
+// components: {
+//   //adicionar componentes
+// },
+data() {
+  return {
+    totalUsuarios: 0
+  };
+},
+async created() { // Altere o nome do método para "created"
+  try {
+    const response = await axios.get("/api/total-usuarios");
+
+    this.totalUsuarios = response.data;
+    console.log(response);
+  } catch (error) {
+    console.error(error);
   }
+},
+methods: {
+ // adicionar métodos 
+},
+
 };
 </script>
+
+<style>
+ p {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+ }
+</style>

@@ -40,7 +40,7 @@
            
             class="nav-link text-white"
             style="text-decoration: none; color: white"
-            to= "NovaReceita"
+            to= "/receitas"
             ><svg
               class="bi d-block mx-auto mb-1"
               width="24"
@@ -76,7 +76,7 @@
         </li>
         <li class="p-2 text-center">
           <router-link
-            to="/receita/create"
+            to="/usuarios"
             class="nav-link text-white"
             style="text-decoration: none; color: white"
             ><svg

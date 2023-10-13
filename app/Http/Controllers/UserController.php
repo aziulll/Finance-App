@@ -13,11 +13,11 @@ class UserController extends Controller
     public function getCountOfUsers()
 {
     $count = User::count(); // Isso retorna a contagem de usuários na tabela users
-    return response()->json(['totalUsuarios' => $count]);
+    return response()->json($count);
 }
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -41,7 +41,9 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return response()->json($user);
     }
 
     /**
