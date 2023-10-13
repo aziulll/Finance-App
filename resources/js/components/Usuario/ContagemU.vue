@@ -2,7 +2,7 @@
     <div>
         <div class="drop-shadow-md border border-black-500 w-24 h-24 text-center">
           <h1>Usuarios</h1>
-            <p>{{ totalUsuarios }}</p>
+            <p>{{ totalUsuarios}}</p>
         </div>
     </div>
 </template>
@@ -11,7 +11,7 @@
 export default {
   data() {
     return {
-      totalUsuarios: 0 // Inicialize com um valor padrão se desejar
+      totalUsuarios: 0  // Inicialize com um valor padrão se desejar
     };
   },
   

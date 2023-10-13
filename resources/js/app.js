@@ -17,7 +17,7 @@ const router = createRouter({
         { path: '/', component:ReceitaList, props: true },
         { path: '/receita/:id', component: Receita, props: true},
         { path: '/receita/:id/edit', component: ReceitaForm, props: true },
-        { path: '/products/create', component: ReceitaForm,props: true },
+        { path: '/products/create', component: ReceitaForm, name: 'NovaReceita'},
     ]
 });
 

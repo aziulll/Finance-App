@@ -11,14 +11,21 @@ class ReceitaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Receita $receita)
     {
-        return Receita::all();
+        $receita = Receita::all();
+        return $receita;
     }
 
     /**
      * Show the form for creating a new resource.
      */
+
+    public function sum() 
+    {
+        $somaReceitas = Receita::sum('valor');
+        return $somaReceitas;   
+    }
     public function create()
     {
         //

@@ -8,12 +8,12 @@
      <div class="navbar">
      
      </div>
-    <div class="col-span-3"> 
+    <div class="col-span-2"> 
       <ReceitaList />
     </div>
-   <div class="contagem col-span-3">
+   <!-- <div class="contagem col-span-3">
     <ContagemU />
-   </div>
+   </div> -->
      
     </div>
 
@@ -32,7 +32,7 @@ import ReceitaComponent from "./Receita/ReceitaComponent.vue";
 import ReceitaList from "./Receita/ReceitaList.vue";
 import ReceitaForm from "./Receita/ReceitaForm.vue";
 import DespesasListVue from "./Despesa/DespesasList.vue";
-import Navbar from './Navbar.vue';
+
 import ContagemU from "./Usuario/ContagemU.vue";
 
 
@@ -43,7 +43,7 @@ export default {
     ReceitaList,
     ReceitaForm,
     DespesasListVue,
-    Navbar, 
+   
     ContagemU
   },
   data() {

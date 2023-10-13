@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('receita', ReceitaController::class);
+Route::get('/total-receitas', [ReceitaController::class, 'sum'])->name('total-receitas');
 Route::get('/total-usuarios', [UserController::class, 'getCountOfUsers'])->name("total-usuarios");
