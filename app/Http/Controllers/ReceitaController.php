@@ -13,8 +13,10 @@ class ReceitaController extends Controller
      */
     public function index(Receita $receita)
     {
-        $receita = Receita::all();
-        return $receita;
+        $receita = Receita::all(); 
+
+        return response()->json($receita);
+        
     }
 
     /**
@@ -74,7 +76,7 @@ class ReceitaController extends Controller
     
         $receita->update($request->all());
     
-        return $receita;
+        return response()->json($receita);
     }
 
     /**

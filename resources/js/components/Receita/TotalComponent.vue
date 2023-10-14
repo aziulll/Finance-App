@@ -1,5 +1,5 @@
 <template>
-    <p style="color: green"><span style="color:black">Soma dos valores: </span>R$ {{ totalValue }},00</p>
+    <p class="text-sm flex flex-reverse" style="color: green"><span style="color:black">Soma dos valores: </span>R$ {{ totalValue }},00</p>
 </template>
 
 <script>
@@ -29,3 +29,4 @@ methods: {
 
 };
 </script>
+

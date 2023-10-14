@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="drop-shadow-md border border-black-500 w-62 h-62 text-center">
+    <div class=" grid grid-cols-4 gap-4">
+        <div class="drop-shadow-md border border-black-500 w-62 h-62 text-center  m-2">
           <h1>Usuarios</h1>
             <p>{{ totalUsuarios}}</p>
         </div>

@@ -4,12 +4,12 @@
       <Sidebar />
     </div>
 
-    <div class="content-right p-2 grid grid-cols-4 gap-4">
+    <div class="content-right p-2">
       <div class="navbar">
      
       <User />
       </div>
-      <div class="col-span-2">
+      <div>
         <router-view></router-view>
       </div>
       <!-- <div class="contagem col-span-3">
