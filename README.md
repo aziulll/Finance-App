@@ -23,10 +23,10 @@ Este é um projeto desenvolvido com Vue 3, Laravel, MySQL e Tailwind CSS.
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-projeto.git
+git clone https://github.com/aziulll/Finance-App.git
 
 # Navegue até a pasta do projeto
-cd seu-projeto
+cd Finance-App
 
 # Instale as dependências
 npm install # para projetos Vue.js
