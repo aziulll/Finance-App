@@ -1,8 +1,8 @@
-# Meu Projeto
+# FINANCE APP
 
 Este é um projeto desenvolvido com Vue 3, Laravel, MySQL e Tailwind CSS.
-
-## Visão Geral
+<!-- 
+## Visão Geral -->
 
 
 
