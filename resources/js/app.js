@@ -10,7 +10,8 @@ import ReceitaForm from './components/Receita/ReceitaForm.vue';
 import Receita from './components/Receita/ReceitaComponent.vue';
 import Usuarios from './components/Usuario/ContagemU.vue'
 import Login from './components/Auth/Login.vue'
-
+import Configurações from './components/Usuario/ConfigComponent.vue'
+import DespesaList from './components/Despesa/DespesasList.vue'
 
 
 const router = createRouter({
@@ -22,10 +23,17 @@ const router = createRouter({
         { path: '/receitas', component:ReceitaList, props: true },
         { path: '/receita/:id', component: Receita, props: true},
         { path: '/receita/:id/edit', component: ReceitaForm, props: true },
-        { path: '/products/create', component: ReceitaForm},
+        { path: '/receita/create', component: ReceitaForm},
+
+        //despesas 
+        {path: '/despesas', component: DespesaList },
+        // {path: '/despesas/:id', component: }
+        {path: ''},
+    
 
         //user
-        {path: '/usuarios', component: Usuarios, name:'TotalUsuarios'}
+        {path: '/usuarios', component: Usuarios, name:'TotalUsuarios'},
+        {path: '/usuarios/config', component: Configurações, name: 'Config' }
     ]
 });
 

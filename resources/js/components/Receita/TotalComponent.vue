@@ -15,7 +15,7 @@ data() {
 },
 async created() { // Altere o nome do método para "created"
   try {
-    const response = await axios.get("/api/total-receitas");
+    const response = await axios.get("/api/receita/total-receitas");
 
     this.totalValue = response.data;
     console.log(response);

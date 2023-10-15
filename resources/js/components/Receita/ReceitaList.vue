@@ -12,6 +12,7 @@
               <th scope="col">#</th>
               <th scope="col">Nome</th>
               <th scope="col">Valor</th>
+              <th scope="col">Categoria</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
@@ -20,6 +21,7 @@
               <td>{{ receita.id }}</td>
               <td>{{ receita.name }}</td>
               <td>R${{ receita.valor }},00</td>
+              <td>{{ receita.categoria }}</td>
               <td>
                 <div class="flex gap-3">
                   <router-link
@@ -115,7 +117,7 @@ export default {
   },
   async created() {
     try {
-      const response = await axios.get("/api/receita");
+      const response = await axios.get("/api/receita/receita");
       this.receitas = response.data;
       console.log(response);
     } catch (error) {

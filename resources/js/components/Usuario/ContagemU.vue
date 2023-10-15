@@ -23,7 +23,7 @@ data() {
 },
 async created() { // Altere o nome do método para "created"
   try {
-    const response = await axios.get("/api/total-usuarios");
+    const response = await axios.get("/api/usuarios/total-usuarios");
 
     this.totalUsuarios = response.data;
     console.log(response);

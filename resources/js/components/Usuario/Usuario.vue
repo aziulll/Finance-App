@@ -25,7 +25,7 @@ export default {
   },
   async created() {
     try {
-      const response = await axios.get(`/api/user/1`);
+      const response = await axios.get(`api/usuarios/user/1`);
       this.Usuario = response.data;
     } catch (error) {
       console.error(error);

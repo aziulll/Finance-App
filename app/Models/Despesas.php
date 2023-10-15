@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Receita extends Model
+class Despesas extends Model
 {
     use HasFactory;
 
@@ -16,6 +16,4 @@ class Receita extends Model
         'categoria'
 
     ];
-
-    
 }

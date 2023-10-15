@@ -57,7 +57,7 @@
         </li>
         <li class="p-2 text-center">
           <router-link
-            to="/receita/create"
+            to="/despesas"
             class="nav-link text-white"
             style="text-decoration: none; color: white"
             ><svg
@@ -78,7 +78,7 @@
           <router-link
             to="/usuarios"
             class="nav-link text-white"
-            style="text-decoration: none; color: white"
+            style="text-decoration: none; color: white; "
             ><svg
               class="bi d-block mx-auto mb-1"
               width="24px"
@@ -106,7 +106,7 @@
         </li>
         <li class="p-2 text-center">
           <router-link
-            to="/receita/create"
+            to="/usuarios/config"
             class="nav-link text-white"
             style="text-decoration: none; color: white"
             ><svg
@@ -158,3 +158,10 @@
     </div>
   </div>
 </template>
+
+
+<style>
+
+
+
+</style>

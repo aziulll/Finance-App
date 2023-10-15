@@ -4,25 +4,19 @@
       <Sidebar />
     </div>
 
-    <div class="content-right p-2">
+    <div class="content-right p-2 ">
       <div class="navbar">
      
-      <User />
+      
+      <User  v-if="!isUserConfigRoute"/>
       </div>
       <div>
         <router-view></router-view>
       </div>
-      <!-- <div class="contagem col-span-3">
-      <ContagemU />
-    </div> -->
+    
     </div>
 
-    <!-- <div class="content-right flex flex-col items-center">
-        <div class="flex mb-12">
-          <ReceitaList />
-          <DespesasListVue />
-        </div>
-      </div> -->
+   
   </div>
 </template>
     
@@ -41,6 +35,13 @@ export default {
       showSidebar: false,
     };
   },
+  computed: {
+    isUserConfigRoute() {
+      // Use o Vue Router para verificar a rota atual
+      return this.$route.path === "/usuarios/config";
+    },
+  },
+
 };
 </script>
 
