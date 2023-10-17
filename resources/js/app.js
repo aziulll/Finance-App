@@ -9,16 +9,17 @@ import ReceitaList from './components/Receita/ReceitaList.vue';
 import ReceitaForm from './components/Receita/ReceitaForm.vue';
 import Receita from './components/Receita/ReceitaComponent.vue';
 import Usuarios from './components/Usuario/ContagemU.vue'
-import Login from './components/Auth/Login.vue'
+
 import Configurações from './components/Usuario/ConfigComponent.vue'
 import DespesaList from './components/Despesa/DespesasList.vue'
+
 
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         //auth
-        { path: '/login', component: Login, props: true },
+       
         //receitas
         { path: '/receitas', component:ReceitaList, props: true },
         { path: '/receita/:id', component: Receita, props: true},

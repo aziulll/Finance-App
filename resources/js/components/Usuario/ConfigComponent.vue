@@ -25,7 +25,6 @@
           id="email"
           name="email"
           class="w-62 p-2 border rounded-md focus:ring focus:ring-blue-200 focus:outline-none focus:ring-opacity-50"
-          placeholder="Digite seu email"
           required
         />
       </div>
@@ -57,3 +56,34 @@
     </form>
   </div>
 </template>
+
+<script>
+
+export default {
+  
+  components: {
+
+  },
+
+  data() {
+     return {
+      usuario: {
+        
+      }
+     }
+  },
+
+  async created() {
+    try {
+      const response = await axios.get(`api/usuarios/user/1`);
+      this.usuario = response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  methods: {
+
+  },
+}
+
+</script>

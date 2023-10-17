@@ -1,19 +1,17 @@
 <template>
-    <p class="text-sm flex flex-reverse" style="color: green"><span style="color:black">Soma dos valores: </span>R$ {{ totalValue }},00</p>
+    <p class="text-sm flex flex-reverse" style="color: green"><span style="color:black">Total: </span> R$ {{ totalValue }},00</p>
 </template>
 
 <script>
 export default {
 
-// components: {
-//   //adicionar componentes
-// },
+
 data() {
   return {
     totalValue: 0
   };
 },
-async created() { // Altere o nome do método para "created"
+async created() { 
   try {
     const response = await axios.get("/api/receita/total-receitas");
 
@@ -23,9 +21,9 @@ async created() { // Altere o nome do método para "created"
     console.error(error);
   }
 },
-methods: {
- // adicionar métodos 
-},
+// methods: {
+//   adicionar métodos 
+// },
 
 };
 </script>

@@ -5,11 +5,10 @@
     </div>
 
     <div class="content-right p-2 ">
-      <div class="navbar">
-     
       
-      <User  v-if="!isUserConfigRoute"/>
-      </div>
+      
+      <!-- <User  v-if="!isUserConfigRoute"/> -->
+    
       <div>
         <router-view></router-view>
       </div>
@@ -50,10 +49,7 @@ export default {
   margin-left: 220px; /* Ajuste a largura do sidebar */
 }
 
-.navbar {
-  width: 100%;
-  height: 60px;
-}
+
 </style>
     
     

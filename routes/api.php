@@ -29,7 +29,10 @@ Route::prefix('despesa')->group(function() {
 
 Route::prefix('receita')->group(function () {
     Route::resource('receita', ReceitaController::class);
+    Route::post('/nova-receita', [ReceitaController::class, 'store']);
     Route::get('/total-receitas', [ReceitaController::class, 'sum'])->name('total-receitas');
+    Route::put('/editar-receita/{id}', [ReceitaController::class, 'update']);
+    Route::get('/receita/{id}', [ReceitaController::class, 'show']);
 });
 
 Route::prefix('usuarios')->group(function () {

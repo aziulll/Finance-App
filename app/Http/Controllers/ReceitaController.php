@@ -41,7 +41,8 @@ class ReceitaController extends Controller
         $request->validate([
             'name' => 'required',
             'detalhe' => 'required',
-            'valor' => 'required'
+            'valor' => 'required', 
+            'categoria'=> 'required'
         ]);
     
         return Receita::create($request->all());
@@ -66,18 +67,35 @@ class ReceitaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Receita $receita)
-    {
-        $request->validate([
-            'name' => 'required',
-            'detalhes' => 'required',
-            'valor' => 'required'
-        ]);
-    
-        $receita->update($request->all());
-    
-        return response()->json($receita);
+    public function update(Request $request, $id)
+{
+    // Validação dos dados
+    $request->validate([
+        'name' => 'required',
+        'detalhe' => 'required',
+        'valor' => 'required',
+        'categoria' => 'required',
+    ]);
+
+    // Encontre a receita pelo ID
+    $receita = Receita::find($id);
+
+    if (!$receita) {
+        return response()->json(['message' => 'Receita não encontrada'], 404);
     }
+
+    // Atualize os campos da receita
+    $receita->name = $request->input('name');
+    $receita->detalhe = $request->input('detalhe');
+    $receita->valor = $request->input('valor');
+    $receita->categoria = $request->input('categoria');
+
+    // Salve as alterações no banco de dados
+    $receita->save();
+
+    return response()->json($receita);
+}
+
 
     /**
      * Remove the specified resource from storage.
