@@ -18,7 +18,7 @@
       <ul>
         <li class="p-2 text-center">
           <router-link
-            to="/"
+            to="/home"
             class="nav-link text-white"
             style="text-decoration: none; color: white"
             ><svg

@@ -7,8 +7,7 @@
     <div class="content-right p-2 ">
       
       
-      <!-- <User  v-if="!isUserConfigRoute"/> -->
-    
+     
       <div>
         <router-view></router-view>
       </div>
@@ -23,10 +22,12 @@
 import Sidebar from './Sidebar.vue';
 import User from './Usuario/Usuario.vue'
 
+
 export default {
   components: {
     Sidebar,
-    User
+    User,
+    
 
   },
   data() {
@@ -37,7 +38,7 @@ export default {
   computed: {
     isUserConfigRoute() {
       // Use o Vue Router para verificar a rota atual
-      return this.$route.path === "/usuarios/config";
+      return this.$route.path === "/";
     },
   },
 

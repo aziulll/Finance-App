@@ -9,7 +9,7 @@ import ReceitaList from './components/Receita/ReceitaList.vue';
 import ReceitaForm from './components/Receita/ReceitaForm.vue';
 import Receita from './components/Receita/ReceitaComponent.vue';
 import Usuarios from './components/Usuario/ContagemU.vue'
-
+import Home from './components/Home.vue'
 import Configurações from './components/Usuario/ConfigComponent.vue'
 import DespesaList from './components/Despesa/DespesasList.vue'
 
@@ -19,22 +19,22 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         //auth
-       
+
         //receitas
-        { path: '/receitas', component:ReceitaList, props: true },
-        { path: '/receita/:id', component: Receita, props: true},
+        { path: '/receitas', component: ReceitaList, props: true },
+        { path: '/receita/:id', component: Receita, props: true },
         { path: '/receita/:id/edit', component: ReceitaForm, props: true },
-        { path: '/receita/create', component: ReceitaForm},
+        { path: '/receita/create', component: ReceitaForm },
 
         //despesas 
-        {path: '/despesas', component: DespesaList },
+        { path: '/despesas', component: DespesaList },
         // {path: '/despesas/:id', component: }
-        {path: ''},
-    
+
+        { path: '/home', component: Home },
 
         //user
-        {path: '/usuarios', component: Usuarios, name:'TotalUsuarios'},
-        {path: '/usuarios/config', component: Configurações, name: 'Config' }
+        { path: '/usuarios', component: Usuarios, name: 'TotalUsuarios' },
+        { path: '/usuarios/config', component: Configurações, name: 'Config' }
     ]
 });
 
