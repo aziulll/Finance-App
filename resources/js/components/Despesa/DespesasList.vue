@@ -6,7 +6,7 @@
 
       
 
-<form class="flex items-center">
+<form @submit.prevent="searchReceitas" class="flex items-center">
   <label for="simple-search" class="sr-only">Search</label>
   <div class="relative w-full">
     <input
@@ -162,6 +162,7 @@ export default {
       total: 0,
       currentPage: 1,
       perPage: 10,
+      
     };
   },
   computed: {

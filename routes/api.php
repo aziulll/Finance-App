@@ -33,6 +33,7 @@ Route::prefix('receita')->group(function () {
     Route::get('/total-receitas', [ReceitaController::class, 'sum'])->name('total-receitas');
     Route::put('/editar-receita/{id}', [ReceitaController::class, 'update']);
     Route::get('/receita/{id}', [ReceitaController::class, 'show']);
+    Route::get('/pesquisar', [ReceitaController::class, 'pesquisar' ]); 
 });
 
 Route::prefix('usuarios')->group(function () {

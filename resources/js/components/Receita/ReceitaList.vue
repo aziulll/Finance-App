@@ -3,11 +3,12 @@
     <div class="list-father flex items-center justify-between">
       <h1 class="text-2xl font-bold">Receitas</h1>
 
-      <form class="flex items-center">
+      <form @submit.prevent="searchReceitas" class="flex items-center">
         <label for="simple-search" class="sr-only">Search</label>
         <div class="relative w-full">
           <input
             type="text"
+            v-model="termoDeBusca"
             id="simple-search"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
             placeholder="Procurar nome..."
@@ -60,8 +61,55 @@
       </router-link>
     </div>
 
-    <div id="list" class="border border-black-500 rounded shadow-md">
-      <table class="w-11/12 mx-auto">
+   
+  
+
+    <div v-if="resultados.length > 0">
+  
+  <div
+      id="list"
+      class="border border-black-500 rounded shadow-md"
+      
+    >
+      <table class="w-11/12 mx-auto ">
+        <thead class="p-2">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="receita in paginatedResultados" :key="receita.id">
+            <td>{{ receita.id }}</td>
+            <td>{{ receita.name }}</td>
+            <td>R${{ receita.valor }},00</td>
+            <td>{{ receita.categoria }}</td>
+            <td>
+              <div class="flex gap-3">
+                <router-link
+                  :to="`/receita/${receita.id}`"
+                  class="px-4 py-2 w-16 bg-green-500 text-white rounded-md hover:bg-green-600"
+                >
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340.274 340.274" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M293.629,127.806l-5.795-13.739c19.846-44.856,18.53-46.189,14.676-50.08l-25.353-24.77l-2.516-2.12h-2.937 c-1.549,0-6.173,0-44.712,17.48l-14.184-5.719c-18.332-45.444-20.212-45.444-25.58-45.444h-35.765 c-5.362,0-7.446-0.006-24.448,45.606l-14.123,5.734C86.848,43.757,71.574,38.19,67.452,38.19l-3.381,0.105L36.801,65.032 c-4.138,3.891-5.582,5.263,15.402,49.425l-5.774,13.691C0,146.097,0,147.838,0,153.33v35.068c0,5.501,0,7.44,46.585,24.127 l5.773,13.667c-19.843,44.832-18.51,46.178-14.655,50.032l25.353,24.8l2.522,2.168h2.951c1.525,0,6.092,0,44.685-17.516 l14.159,5.758c18.335,45.438,20.218,45.427,25.598,45.427h35.771c5.47,0,7.41,0,24.463-45.589l14.195-5.74 c26.014,11,41.253,16.585,45.349,16.585l3.404-0.096l27.479-26.901c3.909-3.945,5.278-5.309-15.589-49.288l5.734-13.702 c46.496-17.967,46.496-19.853,46.496-25.221v-35.029C340.268,146.361,340.268,144.434,293.629,127.806z M170.128,228.474 c-32.798,0-59.504-26.187-59.504-58.364c0-32.153,26.707-58.315,59.504-58.315c32.78,0,59.43,26.168,59.43,58.315 C229.552,202.287,202.902,228.474,170.128,228.474z"></path> </g> </g> </g> </g></svg>
+                </router-link>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>    
+  
+</div>
+<div v-else>
+   <div
+      id="list"
+      class="border border-black-500 rounded shadow-md"
+      
+    >
+      <table class="w-11/12 mx-auto ">
         <thead class="p-2">
           <tr>
             <th scope="col">#</th>
@@ -80,30 +128,10 @@
             <td>
               <div class="flex gap-3">
                 <router-link
-                  :to="`/receita/${receita.id}/edit`"
+                  :to="`/receita/${receita.id}`"
                   class="px-4 py-2 w-16 bg-green-500 text-white rounded-md hover:bg-green-600"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></g>
-                    <g id="SVGRepo_iconCarrier">
-                      <path
-                        d="M18.3282 8.32837L15.8939 5.89405C14.7058 4.706 14.1118 4.11198 13.4268 3.88941C12.8243 3.69364 12.1752 3.69364 11.5727 3.88941C10.8877 4.11198 10.2937 4.706 9.10564 5.89405L7.49975 7.49994M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z"
-                        stroke="#ffffff"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </g>
-                  </svg>
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340.274 340.274" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M293.629,127.806l-5.795-13.739c19.846-44.856,18.53-46.189,14.676-50.08l-25.353-24.77l-2.516-2.12h-2.937 c-1.549,0-6.173,0-44.712,17.48l-14.184-5.719c-18.332-45.444-20.212-45.444-25.58-45.444h-35.765 c-5.362,0-7.446-0.006-24.448,45.606l-14.123,5.734C86.848,43.757,71.574,38.19,67.452,38.19l-3.381,0.105L36.801,65.032 c-4.138,3.891-5.582,5.263,15.402,49.425l-5.774,13.691C0,146.097,0,147.838,0,153.33v35.068c0,5.501,0,7.44,46.585,24.127 l5.773,13.667c-19.843,44.832-18.51,46.178-14.655,50.032l25.353,24.8l2.522,2.168h2.951c1.525,0,6.092,0,44.685-17.516 l14.159,5.758c18.335,45.438,20.218,45.427,25.598,45.427h35.771c5.47,0,7.41,0,24.463-45.589l14.195-5.74 c26.014,11,41.253,16.585,45.349,16.585l3.404-0.096l27.479-26.901c3.909-3.945,5.278-5.309-15.589-49.288l5.734-13.702 c46.496-17.967,46.496-19.853,46.496-25.221v-35.029C340.268,146.361,340.268,144.434,293.629,127.806z M170.128,228.474 c-32.798,0-59.504-26.187-59.504-58.364c0-32.153,26.707-58.315,59.504-58.315c32.78,0,59.43,26.168,59.43,58.315 C229.552,202.287,202.902,228.474,170.128,228.474z"></path> </g> </g> </g> </g></svg>
                 </router-link>
               </div>
             </td>
@@ -112,7 +140,12 @@
       </table>
     </div>
 
-    <TotalComponent />
+  
+    
+
+</div>
+
+<TotalComponent />
 
     <div class="flex flex-col-reverse items-center">
       <!-- Help text -->
@@ -170,9 +203,11 @@
 import axios from "axios";
 import TotalComponent from "./TotalComponent.vue";
 
+
 export default {
   components: {
     TotalComponent,
+ 
   },
   data() {
     return {
@@ -180,6 +215,10 @@ export default {
       total: 0,
       currentPage: 1,
       perPage: 10,
+      termoDeBusca: "",
+    
+     
+      resultados: [],
     };
   },
   computed: {
@@ -190,6 +229,11 @@ export default {
     },
     pageCount() {
       return Math.ceil(this.receitas.length / this.perPage);
+    },
+    paginatedResultados() {
+      const start = (this.currentPage - 1) * this.perPage;
+      const end = start + this.perPage;
+      return this.resultados.slice(start, end);
     },
   },
   async created() {
@@ -212,7 +256,18 @@ export default {
         this.currentPage += 1;
       }
     },
+    searchReceitas() {
+    axios
+      .get(`/api/receita/pesquisar?termo_de_busca=${this.termoDeBusca} `)
+      .then((response) => {
+        this.resultados = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   },
+
+  }, 
 };
 </script>
 

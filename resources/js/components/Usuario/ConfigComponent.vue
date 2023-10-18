@@ -35,7 +35,7 @@
         <textarea
           id="about"
           name="about"
-          class="w-full p-2 border rounded-md focus:ring focus:ring-blue-200 focus:outline-none focus:ring-opacity-50"
+          class="w-56 p-2 border rounded-md focus:ring focus:ring-blue-200 focus:outline-none focus:ring-opacity-50"
           rows="4"
           placeholder="Conte-nos sobre você"
           required

@@ -40,12 +40,12 @@
       </div>
 
       <div class="mb-3">
-        <label for="price" class="block text-sm font-medium text-gray-700"
+        <label for="categoria" class="block text-sm font-medium text-gray-700"
           >categoria</label
         >
         <input
           class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:outline-none focus:ring-opacity-50"
-          type="number"
+          type="text"
           id="price"
           v-model="receita.categoria"
           required
