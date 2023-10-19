@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DespesaController;
 use App\Http\Controllers\ReceitaController;
 use App\Http\Controllers\UserController;
@@ -17,9 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 
 Route::prefix('despesa')->group(function() {
@@ -40,3 +38,8 @@ Route::prefix('usuarios')->group(function () {
     Route::get('/total-usuarios', [UserController::class, 'getCountOfUsers'])->name('total-usuarios');
     Route::get('/user/{id}', [UserController::class, 'show']);
 });
+
+Route::post('/login', [AuthController::class,'login'])->name('login');
+Route::post('logout', [AuthController::class,'logout'])->name('logout');
+Route::post('refresh', [AuthController::class,'refresh'])->name('refresh');
+Route::post('me', [AuthController::class,'me'])->name('me');

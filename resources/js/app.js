@@ -13,6 +13,7 @@ import Home from './components/Home.vue'
 import Configurações from './components/Usuario/ConfigComponent.vue'
 import DespesaList from './components/Despesa/DespesasList.vue'
 import DespesaForm from './components/Despesa/DespesaForm.vue'
+import Login from './components/Auth/Login.vue'
 
 
 const router = createRouter({
@@ -20,6 +21,7 @@ const router = createRouter({
     routes: [
         //auth
 
+        {path: '/login', component: Login},
         //receitas
         { path: '/receitas', component: ReceitaList, props: true },
         { path: '/receita/:id', component: Receita, props: true },
