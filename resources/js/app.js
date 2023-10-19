@@ -12,7 +12,7 @@ import Usuarios from './components/Usuario/ContagemU.vue'
 import Home from './components/Home.vue'
 import Configurações from './components/Usuario/ConfigComponent.vue'
 import DespesaList from './components/Despesa/DespesasList.vue'
-
+import DespesaForm from './components/Despesa/DespesaForm.vue'
 
 
 const router = createRouter({
@@ -25,16 +25,20 @@ const router = createRouter({
         { path: '/receita/:id', component: Receita, props: true },
         { path: '/receita/:id/edit', component: ReceitaForm, props: true },
         { path: '/receita/create', component: ReceitaForm },
+        
 
         //despesas 
-        { path: '/despesas', component: DespesaList },
-        // {path: '/despesas/:id', component: }
+        // { path: '/despesas', component: DespesaList },
+        // {
+        //     path: '/despesas/create', component: DespesaForm
+        // },
+        // // {path: '/despesas/:id', component: }
 
-        { path: '/home', component: Home },
+        { path: '/home', component: Home }, 
 
-        //user
-        { path: '/usuarios', component: Usuarios, name: 'TotalUsuarios' },
-        { path: '/usuarios/config', component: Configurações, name: 'Config' }
+        // //user
+        // { path: '/usuarios', component: Usuarios, name: 'TotalUsuarios' },
+        // { path: '/usuarios/config', component: Configurações, name: 'Config' }
     ]
 });
 
